@@ -6,20 +6,20 @@ sendmail.exe
 mailtrap.io Account
 #Deployment Steps Using XAMPP
 
-##CLONING AND SETTING UP XAMPP
+## CLONING AND SETTING UP XAMPP
 
-*clone this repo using this command: "git clone https://github.com/TokyoTG/snh.git"
-*place the cloned repo root folder(snh) containing all files in your XAMPP htdocs folder ("C:\xampp\htdocs\")
-*start your XAMPP Apache services and copy this link: http://localhost/snh/ in your browser.
+* clone this repo using this command: "git clone https://github.com/TokyoTG/snh.git"
+* place the cloned repo root folder(snh) containing all files in your XAMPP htdocs folder ("C:\xampp\htdocs\")
+* start your XAMPP Apache services and copy this link: http://localhost/snh/ in your browser.
 
-##GETTING MAILTRAP AND SENDMAIL
+## GETTING MAILTRAP AND SENDMAIL
 
-*Go to https://mailtrap.io/ and login or create a new account
-*Copy this link and paste this link https://www.glob.com.au/sendmail/sendmail.zip on your browser to download sendmail.
-*Unzip the downloaded file into a folder preferably named "sendmail".
-*Move/Copy this folder (folder containing sendmail) to the root folder of your XAMPP ("C:\xampp\")
+* Go to https://mailtrap.io/ and login or create a new account
+* Copy this link and paste this link https://www.glob.com.au/sendmail/sendmail.zip on your browser to download sendmail.
+* Unzip the downloaded file into a folder preferably named "sendmail".
+* Move/Copy this folder (folder containing sendmail) to the root folder of your XAMPP ("C:\xampp\")
 
-##SETTING UP MAILTRAP AND SENDMAIL
+## SETTING UP MAILTRAP AND SENDMAIL
 
 -Stop your XAMPP services
 -locate your php.ini file, it is located in C:\xampp\php\php.ini
