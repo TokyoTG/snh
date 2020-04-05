@@ -8,7 +8,7 @@ mailtrap.io Account
 
 CLONING AND SETTING UP XAMPP
 
--clone this repo using this command: "git clone https://github.com/TokyoTG/snh.git" \n
+-clone this repo using this command: "git clone https://github.com/TokyoTG/snh.git"
 -place the cloned repo root folder(snh) containing all files in your XAMPP htdocs folder ("C:\xampp\htdocs\")
 -start your XAMPP Apache services and copy this link: http://localhost/snh/ in your browser.
 
