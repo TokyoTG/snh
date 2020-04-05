@@ -1,0 +1,11 @@
+{
+  "id": 3,
+  "firstname": "Abdul",
+  "lastname": "Daniel",
+  "email": "daniel@yahoo.com",
+  "password": "$2y$10$WrVic1wWWkTpeneOVqepLOaFbYpfA5K9FJKuisrn38rNIy998uDIO",
+  "gender": "Female",
+  "department": "Laboratory",
+  "designation": "Medical Team(MT)",
+  "dateRegistered": "10:30pm April 15 2014"
+}

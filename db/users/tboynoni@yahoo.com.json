@@ -1,0 +1,11 @@
+{
+  "id": 3,
+  "firstname": "Toyeeb",
+  "lastname": "Pappi",
+  "email": "tboynoni@yahoo.com",
+  "password": "$2y$10$jI8xK27fj1DGsP8QJHNGpuvOYmGpZ4gsm9XiWe0tTJCadIaTsdK5.",
+  "gender": "Male",
+  "department": "Laboratory",
+  "designation": "Patient",
+  "dateRegistered": "10:30pm April 15 2014"
+}

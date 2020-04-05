@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  font-weight: 400;
+  margin: 5px 0 15px 0;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+}
+
+.welcome {
+  text-align: center;
+  border-bottom: 1px solid;
+  margin-bottom: 40px;
+}
+
+.welcome h1 {
+  font-size: 2.5em;
+}
+.pricing-header {
+  min-height: 550px;
+}
+
+section {
+  min-height: 550px;
+  width: 100%;
+  color: #424242;
+
+  /* background: #bdbdbd; */
+}
+
+section p {
+  margin-bottom: 5px;
+}
+
+/* margin-bottom: 30px; */
+
+/* nav li, */
+footer li {
+  display: inline;
+}
+/* nav li a, */
+footer p {
+  display: inline-block;
+  color: white;
+  transition: 0.3s;
+  font-size: 0.9em;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+nav li a:hover {
+  text-decoration: underline;
+  scale: 2;
+  color: #263238;
+}
+
+footer {
+  background: #0091ea;
+}
+
+footer li a {
+  float: right;
+}
+
+footer p {
+  /* padding: 10px 15px; */
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+}
+
+.form-container {
+  min-width: 400px;
+  width: 50%;
+  padding: 10px 15px;
+  margin: 0 auto;
+  background: white;
+}
+
+#login {
+  width: 400px;
+  background: white;
+  margin: 100px auto 300px auto;
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#login div {
+  text-align: center;
+}
+
+#login form,
+.form-container form {
+  margin-top: 20px;
+}
+#login div h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-bottom: 1px solid #495057;
+}
+
+button {
+  height: 40px;
+  width: 100%;
+  color: white;
+  font-size: 1.2em;
+  border-radius: 0.25rem;
+  border: none;
+  background: #00c853;
+}
+
+#dashboard {
+  min-height: 500px;
+  padding: 20px;
+}
+
+form p a {
+  text-decoration: none;
+  display: block;
+  /* margin-bottom: 15px; */
+  transition: 0.3s;
+}
+
+form p a:hover {
+  text-decoration: underline;
+}
+
+form p {
+  margin: 20px 0 20px 0;
+}
+
+.time {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+}

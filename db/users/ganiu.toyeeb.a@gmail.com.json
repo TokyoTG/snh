@@ -1,0 +1,11 @@
+{
+  "id": 2,
+  "firstname": "Abdul",
+  "lastname": "Baddo",
+  "email": "ganiu.toyeeb.a@gmail.com",
+  "password": "$2y$10$yHNOvNXjsS5WquVQVyIquO3trsROXDSZcg4X7fpGULo.UUeWMXAum",
+  "gender": "Male",
+  "department": "Laboratory",
+  "designation": "Patient",
+  "dateRegistered": "10:30pm April 15 2014"
+}
