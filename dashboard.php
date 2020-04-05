@@ -21,7 +21,13 @@ $lastLogIn = fetchDate($_SESSION['email']);
 </div>
 <div class="time">
     <p>Date of Registration : <?php echo  $userData->dateRegistered  ?></p>
-    <p>Last Login : <?php echo  $lastLogIn;  ?></p>
+    <p>Last Login : <?php
+                    if (isset($lastLogIn)) {
+                        echo  $lastLogIn;
+                    } else {
+                        echo $userData->dateRegistered;
+                    }
+                    ?></p>
     <p>Department : <?php echo $userData->department  ?></p>
 </div>
 
