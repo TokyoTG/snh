@@ -14,9 +14,11 @@ $lastLogIn = fetchDate($_SESSION['email']);
 
 <div id="dashboard">
     <h1>Patient Dashboard</h1>
-    <?php
-    echo "Welcome " . $userData->firstname . " you are logged in as (" . $userData->designation . ").";
-    ?>
+    <p><?php
+        echo "Welcome " . $userData->firstname . " you are logged in as (" . $userData->designation . ").";
+        ?></p>
+    <a class="btn btn-outline-success" href="paybill.php">Pay Bill</a>
+    <a class="btn btn-outline-primary">Book Appointment</a>
 </div>
 <div class="time">
     <p>Date of Registration : <?php echo  $userData->dateRegistered  ?></p>
