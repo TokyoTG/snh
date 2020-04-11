@@ -15,7 +15,7 @@ $lastLogIn = fetchDate($_SESSION['email']);
 <section>
     <div id="table">
         <!-- <h1>Appointment Table for <?php echo $userData->department ?> Department</h1> -->
-        <a class="btn btn-outline-danger" href="dashboard.php" style="margin: 20px">Back</a>
+        <a class="btn btn-outline-danger" href="dashboard.php" style="margin: 20px">&#x2190; Back</a>
         <?php
         $rows = getAppointments($userData->department);
         if ($rows) {
@@ -35,11 +35,12 @@ $lastLogIn = fetchDate($_SESSION['email']);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php appendToTable($rows) ?>
+                    <?php echo $rows; ?>
                 </tbody>
             </table>
         <?php } else { ?>
             <p>You have no pending appointments</p>
         <?php } ?>
+
+    </div>
 </section>
-</div>

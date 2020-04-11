@@ -43,12 +43,6 @@ if (strlen($complaint) < 5) {
     set_message('error', "Complaint cannot not be less than 5");
     header("location:bookappointment.php");
     die();
-}
-if (!preg_match("/^[a-z]+\s+[a-z]+$/i", $nature)) {
-
-    set_message('error', "Nature cannot have numbers");
-    header("location:bookappointment.php");
-    die();
 } else {
 
 

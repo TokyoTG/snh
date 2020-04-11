@@ -16,7 +16,7 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['role'] !== "Patient") {
 
 
 <section>
-    <a class="btn btn-outline-danger" href="patientDashboard.php" style="margin-left: 20px">Back</a>
+    <a class="btn btn-outline-danger" href="patientDashboard.php" style="margin-left: 20px">&#x2190; Back</a>
     <div class="form-container">
         <div class="welcome">
             <h3>Apointment Form</h3>
@@ -35,14 +35,24 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['role'] !== "Patient") {
 
             <p>
                 <label>Nature of Appointment</label><br>
-                <input value="<?php
 
-                                if (isset($_SESSION['nature']) && $_SESSION['nature'] != '') {
-                                    echo $_SESSION['nature'];
-                                    //  $_SESSION['first_name'] = '';      
-                                }
+                <select name="nature">
+                    <option value="">Select one</option>
+                    <option <?php
 
-                                ?>" name="nature" placeholder="Please enter Nature of Appointment">
+                            if (isset($_SESSION['nature']) && $_SESSION['nature'] == 'New Appointment') {
+                                echo "selected";
+                            }
+
+                            ?>>New Appointment</option>
+                    <option <?php
+
+                            if (isset($_SESSION['nature']) && $_SESSION['nature'] == 'Folloup Appointment') {
+                                echo "selected";
+                            }
+
+                            ?>>Folloup Appointment</option>
+                </select>
             </p>
             <p>
                 <label>Time of Appointment</label><br>

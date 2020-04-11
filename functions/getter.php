@@ -29,7 +29,44 @@ function getAppointments($dept)
     return $rows;
 }
 
-function appendToTable($rows)
+
+function getAllusers()
 {
-    echo $rows;
+    $staffRows = '';
+    $staffRowNum = 0;
+    $patientRows = "";
+    $numofPatientRows = 0;
+    $allusers = scandir('db/users/');
+    $num = count($allusers);
+    for ($i = 2; $i < $num; $i++) {
+        // echo $allusers[$i];
+        $user = json_decode(file_get_contents('db/users/' . $allusers[$i]));
+        // print_r($user);
+        if ($user->designation == "Medical Team(MT)") {
+            $staffRowNum++;
+            $staffRows .= "
+             <tr>
+                <th scope='row'>$staffRowNum</th>
+                <td>$user->firstname $user->lastname</td>
+                 <td>$user->gender</td>
+                <td>$user->designation</td>
+                <td>$user->department</td>
+                <td>$user->dateRegistered</td>
+            </tr>
+            ";
+        } else if ($user->designation == "Patient") {
+            $numofPatientRows++;
+            $patientRows .= "
+             <tr>
+                <th scope='row'>$numofPatientRows</th>
+                <td>$user->firstname $user->lastname</td>
+                  <td>$user->gender</td>
+                <td>$user->designation</td>
+                <td>$user->department</td>
+                <td>$user->dateRegistered</td>
+            </tr>
+            ";
+        }
+    }
+    return ['staff' => $staffRows, 'patient' => $patientRows];
 }

@@ -175,3 +175,31 @@ form p {
   font-size: 1em;
   font-weight: 400;
 }
+
+caption {
+  text-transform: capitalize;
+}
+
+#dashboard li {
+  list-style-type: none;
+  margin-bottom: 5px;
+  /* width: 70%; */
+}
+#dashboard li a {
+  color: white;
+
+  padding: 10px 15px;
+  display: block;
+}
+#dashboard ul {
+  padding-top: 15px;
+  background: #00b0ff;
+  border-radius: 25px 0px 25px 0px;
+  width: 40%;
+  min-height: 350px;
+}
+
+#dashboard li a:hover {
+  background: #0091ea;
+  text-decoration: none;
+}
