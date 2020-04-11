@@ -31,6 +31,7 @@ $lastLogIn = fetchDate($_SESSION['email']);
                         <th scope="col">Nature of Apointment</th>
                         <th scope="col">Appointment Date</th>
                         <th scope="col">Appointment Time</th>
+                        <th scope="col">Department</th>
                         <th scope="col">Initial Complaint</th>
                     </tr>
                 </thead>

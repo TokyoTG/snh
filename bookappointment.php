@@ -47,11 +47,11 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['role'] !== "Patient") {
                             ?>>New Appointment</option>
                     <option <?php
 
-                            if (isset($_SESSION['nature']) && $_SESSION['nature'] == 'Folloup Appointment') {
+                            if (isset($_SESSION['nature']) && $_SESSION['nature'] == 'FollowUp Appointment') {
                                 echo "selected";
                             }
 
-                            ?>>Folloup Appointment</option>
+                            ?>>FollowUp Appointment</option>
                 </select>
             </p>
             <p>

@@ -1,1 +1,9 @@
-{"id":1,"nature":"First Appoint","time":"02:01:00am","date":"2020-04-29","department":"Laboratory","complaint":"Headache","patientName":"Toyeeb Pappi"}
+{
+  "id": 1,
+  "nature": "FollowUp Appointment",
+  "time": "02:01:00am",
+  "date": "2020-04-29",
+  "department": "Laboratory",
+  "complaint": "Headache",
+  "patientName": "Toyeeb Pappi"
+}

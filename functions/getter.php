@@ -18,6 +18,7 @@ function getAppointments($dept)
                 <td>$appointment->nature</td>
                 <td>$appointment->date</td>
                 <td>$appointment->time</td>
+                <td>$appointment->department</td>
                   <td>$appointment->complaint</td>
             </tr>
             ";
