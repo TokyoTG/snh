@@ -158,3 +158,20 @@ form p {
   width: 40%;
   position: relative;
 }
+#table {
+  width: 80%;
+  position: relative;
+  margin: auto;
+}
+
+#table p {
+  font-size: 1.5em;
+  text-align: center;
+  /* display: inline-block; */
+  margin-top: auto;
+}
+
+.table-bordered th {
+  font-size: 1em;
+  font-weight: 400;
+}

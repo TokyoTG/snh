@@ -13,27 +13,33 @@ $lastLogIn = fetchDate($_SESSION['email']);
 ?>
 
 <section>
-    <h1>Appointment Table for <?php echo $userData->department ?> Department</h1>
-    <a class="btn btn-outline-danger" href="dashboard.php" style="margin: 20px">Back</a>
-    <?php getAppointments($userData->department) ?>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">No</th>
-                <th scope="col">Patient Name</th>
-                <th scope="col">Nature of Apointment</th>
-                <th scope="col">Date of Appointment</th>
-                <th scope="col">Initial Complaint</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="table">
+        <!-- <h1>Appointment Table for <?php echo $userData->department ?> Department</h1> -->
+        <a class="btn btn-outline-danger" href="dashboard.php" style="margin: 20px">Back</a>
+        <?php
+        $rows = getAppointments($userData->department);
+        if ($rows) {
 
+        ?>
+            <table class="table table-bordered">
+                <caption>
+                    <?php echo $userData->department ?> Department Appointments</caption>
+                <thead class="thead-dark ">
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Nature of Apointment</th>
+                        <th scope="col">Appointment Date</th>
+                        <th scope="col">Appointment Time</th>
+                        <th scope="col">Initial Complaint</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php appendToTable($rows) ?>
+                </tbody>
+            </table>
+        <?php } else { ?>
+            <p>You have no pending appointments</p>
+        <?php } ?>
 </section>
+</div>
