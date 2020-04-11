@@ -78,3 +78,15 @@ function fetchDate($email)
         }
     }
 }
+
+function generateToken()
+{
+    $token = "";
+    $alphabets = ['a', 'b', 'A', 'B', 'c', 'C', 'd', 'D', 'e', 'E', 'f', 'F', 'g', 'G', 'i', 'I', 'j', 'm', "M", 'y', 'z', 'w', 'Z'];
+
+    for ($i = 0; $i < 20; $i++) {
+        $index = mt_rand(0, count($alphabets) - 1);
+        $token .= $alphabets[$index];
+    }
+    return $token;
+}

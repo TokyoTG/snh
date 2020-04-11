@@ -30,7 +30,7 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['role'] !== "Patient") {
 
 
         ?>
-        <form action="proccessapointment.php" method="POST">
+        <form action="proccessbookapointment.php" method="POST">
 
 
             <p>

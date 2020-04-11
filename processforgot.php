@@ -9,53 +9,44 @@ $_POST['email'] !== '' ? $email = $_POST['email'] : $errorCount++;
 $_SESSION['email'] = $email;
 
 
-if($errorCount > 0){
-    $session_message = 'Process failed, you have '. $errorCount.' error';
-    if($errorCount >1){
+if ($errorCount > 0) {
+    $session_message = 'Process failed, you have ' . $errorCount . ' error';
+    if ($errorCount > 1) {
         $session_message .= "s";
     }
-    $session_message .=' in your form submmision' ;
+    $session_message .= ' in your form submmision';
     // $_SESSION['error'] = $session_message;
-     set_message('error',$session_message);
+    set_message('error', $session_message);
     header("location: forgot.php");
-}else{
-     $allusers = scandir('db/users/');
+} else {
+    $allusers = scandir('db/users/');
     $numOfUsers = count($allusers);
-    for($counter=0; $counter < $numOfUsers; $counter++){
+    for ($counter = 0; $counter < $numOfUsers; $counter++) {
         $currentUser = $allusers[$counter];
-        if($currentUser == $email.".json" ){
+        if ($currentUser == $email . ".json") {
+            $token = generateToken();
 
-            $token = "";
-            $alphabets = ['a','b','A','B','c','C','d','D','e','E','f','F','g','G','i','I','j','m',"M",'y','z','w','Z'];
-
-            for($i =0; $i < 20; $i++){
-                $index = mt_rand(0,count($alphabets)-1);
-                $token .= $alphabets[$index];
-            }
-
-  
             $subject = "Password reset link";
-            $message= "A password reset has been initiated on this account, if you do not initiate this reset,
-            please ignore this message. Otherwise, visit: localhost/snh/reset.php?token=".$token;
-            $headers = "From: no-reply@snh.ng"."\r\n"."CC:tokyo@snh.ng";
+            $message = "A password reset has been initiated on this account, if you do not initiate this reset,
+            please ignore this message. Otherwise, visit: localhost/snh/reset.php?token=" . $token;
+            $headers = "From: no-reply@snh.ng" . "\r\n" . "CC:tokyo@snh.ng";
 
-             file_put_contents("db/tokens/".$email.".json", json_encode(['token'=> $token]));
-           $sent =  mail($email,$subject,$message,$headers);
+            file_put_contents("db/tokens/" . $email . ".json", json_encode(['token' => $token]));
+            $sent =  mail($email, $subject, $message, $headers);
 
-        //    print_r($sent);
-           if($sent){
+            //    print_r($sent);
+            if ($sent) {
                 // $_SESSION['message'] ='Password reset link as be sent to your email: '.$email ;
-                 set_message('message','Password reset link as be sent to your email: '.$email);
-            header("location:login.php");
-           }else{
-               set_message('error',"Something went wrong we coud not sent password reset link to email: ".$email);
+                set_message('message', 'Password reset link as be sent to your email: ' . $email);
+                header("location:login.php");
+            } else {
+                set_message('error', "Something went wrong we coud not sent password reset link to email: " . $email);
                 header("location:forgot.php");
-           }
-                 die();
-            }     
-           
+            }
+            die();
         }
-            // $_SESSION['error'] ='Email not registered with us ERR: '.$email ;
-            set_message('error','Email not registered with us ERR: '.$email );
-            header("location:forgot.php");
     }
+    // $_SESSION['error'] ='Email not registered with us ERR: '.$email ;
+    set_message('error', 'Email not registered with us ERR: ' . $email);
+    header("location:forgot.php");
+}
