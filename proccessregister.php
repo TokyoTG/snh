@@ -34,7 +34,8 @@ if ($errorCount > 0) {
     }
     $session_message .= ' in your form submmision';
 
-    $_SESSION['error'] = $session_message;
+    // $_SESSION['error'] = $session_message;
+    set_message('error', $session_message);
     header("location:register.php");
     die();
 }

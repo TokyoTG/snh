@@ -25,11 +25,13 @@ function print_message()
     for ($i = 0; $i < count($colors); $i++) {
         if (isset($_SESSION[$types[$i]]) && $_SESSION[$types[$i]] != '') {
 
-            echo "<div class='alert alert-" . $colors[$i] . "'" . " role='alert'>"
+            echo "<div class='alert alert-" . $colors[$i] . "'" . " role='alert' id='alert'>"
                 . $_SESSION[$types[$i]] .
                 "</div>";
             if (!isset($_SESSION['LoggedIn'])) {
                 session_destroy();
+            } else {
+                unset($_SESSION[$types[$i]]);
             }
         }
     }
