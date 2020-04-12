@@ -47,8 +47,8 @@ if (strlen($complaint) < 5) {
 
 
 
-    $d = strtotime($time);
-    $dateData = date('h:i:sa', $d);
+    $timeToString = strtotime($time);
+    $formattedTiime = date('h:i:sa', $timeToString);
     $allappointment = scandir('db/appointments/');
     $numOfappointments = count($allappointment);
     $Id = ($numOfappointments - 1);
@@ -56,7 +56,7 @@ if (strlen($complaint) < 5) {
     $apointObject = [
         'id' => $Id,
         'nature' => $nature,
-        'time' => $dateData,
+        'time' => $formattedTiime,
         'date' => $date,
         'department' => $department,
         'complaint' => $complaint,
