@@ -4,7 +4,7 @@ include_once('./libs/header.php');
 require_once('./functions/alert.php');
 require_once('./functions/getter.php');
 if (!isset($_SESSION['LoggedIn']) || $_SESSION['role'] !== "Medical Team(MT)") {
-    $_SESSION['error'] = "You have not login";
+    set_message('error', "You have not login");
     header("location:login.php");
 }
 
