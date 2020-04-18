@@ -34,30 +34,32 @@ if ($errorCount > 0) {
     }
     $session_message .= ' in your form submmision';
 
-    $_SESSION['error'] = $session_message;
+    // $_SESSION['error'] = $session_message;
+    set_message('error', $session_message);
     header("location:register.php");
     die();
 }
 if (!preg_match("/^[a-z]+$/i", $first_name) || !preg_match("/^[a-z]+$/i", $last_name)) {
-    $_SESSION['error'] = "Firstname and last name cannot have numbers";
+    set_message('error', "Firstname and last name cannot have numbers");
+
     header("location:register.php");
     die();
 }
 
 if (strlen($first_name) < 2 || strlen($last_name) < 2) {
-    $_SESSION['error'] = "First and last name cannot not be less than 2";
+    set_message('error', "First and last name cannot not be less than 2");
     header("location:register.php");
     die();
 }
 
 
 if (!preg_match("/[a-z0-9.-]+@[a-z-]+\.(com|ng|net|co|org|ng)/i", test_input($email))) {
-    $_SESSION['error'] = "Email is invalid";
+    set_message('error', "Email is invalid");
     header("location:register.php");
     die();
 }
 if (strlen($email) < 5) {
-    $_SESSION['error'] = "Email cannot not be less than 5";
+    set_message('error', "Email cannot not be less than 5");
     header("location:register.php");
     die();
 } else {

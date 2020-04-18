@@ -2,8 +2,8 @@
 // session_start();
 include_once('./libs/header.php');
 require_once('./functions/alert.php');
-if (!isset($_SESSION['LoggedIn'])) {
-    $_SESSION['error'] = "You have not login";
+if (!isset($_SESSION['LoggedIn']) || $_SESSION['role'] !== "Super Admin") {
+    set_message('error', "You have not login");
     header("location:login.php");
 }
 
@@ -17,12 +17,20 @@ $userData->dateLog = $lastLogIn;
     <h1 class="display-4">Admin Dashboard</h1>
     <p class="lead">Click on the button to create user</p>
     <p>
-        <a class="btn btn-bg btn-outline-success" href="#form">Create New User</a>
+        <?php
+        echo "Welcome " . $userData->firstname . " you are logged in as (" . $userData->designation . ").";
+        ?>
     </p>
-    <?php
-    echo "Welcome " . $userData->firstname . " you are logged in as (" . $userData->designation . ").";
-    ?>
+    <div>
+        <ul>
+
+            <li><a href="adminTable.php?table=staff">View Staffs</a></li>
+            <li><a href="adminTable.php?table=patient">View Patients</a></li>
+            <li><a href="#form">Create User</a></li>
+        </ul>
+    </div>
 </div>
+
 <div class="time">
     <p>Date of Registration : <?php echo  $userData->dateRegistered  ?></p>
     <p>Last Login : <?php echo  $lastLogIn;  ?></p>

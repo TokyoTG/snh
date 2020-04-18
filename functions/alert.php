@@ -1,22 +1,5 @@
 <?php
 
-function error()
-{
-    if (isset($_SESSION['error']) && $_SESSION['error'] != '') {
-        echo "<span style='color:red;'>" . $_SESSION['error'] . "</span>";
-        session_destroy();
-    }
-}
-
-function message()
-{
-    if (isset($_SESSION['message']) && $_SESSION['message'] != '') {
-        echo "<span style='color:green;'>" . $_SESSION['message'] . "</span>";
-        session_destroy();
-    }
-}
-
-
 
 function print_message()
 {
@@ -25,11 +8,13 @@ function print_message()
     for ($i = 0; $i < count($colors); $i++) {
         if (isset($_SESSION[$types[$i]]) && $_SESSION[$types[$i]] != '') {
 
-            echo "<div class='alert alert-" . $colors[$i] . "'" . " role='alert'>"
+            echo "<div class='alert alert-" . $colors[$i] . "'" . " role='alert' id='alert'>"
                 . $_SESSION[$types[$i]] .
                 "</div>";
             if (!isset($_SESSION['LoggedIn'])) {
                 session_destroy();
+            } else {
+                unset($_SESSION[$types[$i]]);
             }
         }
     }
@@ -75,4 +60,16 @@ function fetchDate($email)
             return $dateData->date;
         }
     }
+}
+
+function generateToken()
+{
+    $token = "";
+    $alphabets = ['a', 'b', 'A', 'B', 'c', 'C', 'd', 'D', 'e', 'E', 'f', 'F', 'g', 'G', 'i', 'I', 'j', 'm', "M", 'y', 'z', 'w', 'Z'];
+
+    for ($i = 0; $i < 20; $i++) {
+        $index = mt_rand(0, count($alphabets) - 1);
+        $token .= $alphabets[$index];
+    }
+    return $token;
 }

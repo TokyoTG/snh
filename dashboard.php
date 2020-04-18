@@ -2,8 +2,8 @@
 // session_start();
 include_once('./libs/header.php');
 require_once('./functions/alert.php');
-if (!isset($_SESSION['LoggedIn'])) {
-    $_SESSION['error'] = "You have not login";
+if (!isset($_SESSION['LoggedIn']) || $_SESSION['role'] !== "Medical Team(MT)") {
+    set_message('error', "You have not login");
     header("location:login.php");
 }
 
@@ -14,9 +14,13 @@ $lastLogIn = fetchDate($_SESSION['email']);
 
 <div id="dashboard">
     <h1>Medical Team Dashboard</h1>
-    <?php
-    echo "Welcome " . $userData->firstname . " you are logged in as (" . $userData->designation . ").";
-    ?>
+    <p>
+        <?php
+        echo "Welcome " . $userData->firstname . " you are logged in as (" . $userData->designation . ").";
+        ?>
+    </p>
+
+    <a class="btn btn-outline-primary" href="apointmentTable.php">View Appointments</a>
 
 </div>
 <div class="time">
