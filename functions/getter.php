@@ -71,3 +71,4 @@ function getAllusers()
     }
     return ['staff' => $staffRows, 'patient' => $patientRows];
 }
+

@@ -41,10 +41,10 @@ if (!isset($_GET['token']) && !isset($_SESSION['token']) && !isset($_SESSION['Lo
                         echo "value=" . $_SESSION['email'];
                     }
                     ?> <?php
-                if (isset($_SESSION['LoggedIn'])) {
-                    echo 'readonly';
-                }
-                ?> type="email" name="email" placeholder="Please enter email">
+                        if (isset($_SESSION['LoggedIn'])) {
+                            echo 'readonly';
+                        }
+                        ?> type="email" name="email" placeholder="Please enter email">
         </p>
         <p>
             <label>New Password:</label><br>
