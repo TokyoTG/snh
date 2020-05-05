@@ -1,6 +1,7 @@
 <?php
-require_once('./functions/alert.php');
 session_start();
+require_once('./functions/alert.php');
+require_once('./functions/checkers.php');
 $userData = json_decode($_SESSION['userObject']);
 $errorCount = 0;
 

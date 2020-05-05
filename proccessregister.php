@@ -1,7 +1,8 @@
 <?php
+session_start();
 require_once('./functions/alert.php');
 require_once('./functions/checkers.php');
-session_start();
+
 $first_name = $last_name = $email = $password = $gender = $department = $designation = '';
 $errorCount = 0;
 

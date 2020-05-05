@@ -2,7 +2,7 @@
 
 function is_user_loggedIn()
 {
-    if (isset($_SESSION['LoggedIn'])) {
+    if (isset($_SESSION['LoggedIn']) && !empty($_SESSION['LoggedIn'])) {
         return true;
     }
     return false;
@@ -22,7 +22,7 @@ function is_token_set_in_get()
 }
 function is_token_set_in_session()
 {
-    if (isset($_SESSION['token'])) {
+    if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
         return true;
     }
     return false;
@@ -78,9 +78,9 @@ function find_token($email)
         return true;
     }
     $alltokens = scandir('db/tokens/');
-    $numOfTokens = count($alltokens) - 1;
+    $numOfTokens = count($alltokens);
 
-    for ($counter = 0; $counter < $numOfTokens; $counter++) {
+    for ($counter = 2; $counter < $numOfTokens; $counter++) {
         $currentToken = $alltokens[$counter];
         if ($currentToken == $email . ".json") {
             return $currentToken;
@@ -90,4 +90,21 @@ function find_token($email)
 function save_userObject($obj, $email)
 {
     file_put_contents("db/users/" . $email . ".json", json_encode($obj));
+}
+
+function checkError($count)
+{
+    if ($count > 0) {
+        $session_message = 'Submission failed, you have ' . $count . ' blank field';
+        if ($count > 1) {
+            $session_message .= "s";
+        }
+        $session_message .= ' in your form submmision';
+
+        set_message('error', $session_message);
+
+        // $_SESSION['error'] = $session_message;
+        header("location:bookappointment.php");
+        die();
+    }
 }

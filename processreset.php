@@ -1,7 +1,8 @@
 <?php
+session_start();
 require_once('./functions/alert.php');
 require_once('./functions/checkers.php');
-session_start();
+
 
 $errorCount = 0;
 if (!isset($_SESSION['LoggedIn'])) {
@@ -22,8 +23,6 @@ if ($errorCount > 0) {
     header("location:reset.php");
 } else {
     $_SESSION['email'] = $email;
-    $alltokens = scandir('db/tokens/');
-    $numOfTokens = count($alltokens) - 1;
     $checkedToken = find_token($email);
     if ($checkedToken) {
         $tokenObject = json_decode(file_get_contents('db/tokens/' . $email . ".json"));

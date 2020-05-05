@@ -1,6 +1,9 @@
 <?php
-require_once('./functions/alert.php');
 session_start();
+require_once('./functions/alert.php');
+require_once('./functions/checkers.php');
+
+
 $first_name = $last_name = $email = $password = $gender = $department = $designation = '';
 $errorCount = 0;
 
@@ -14,13 +17,7 @@ $_POST['department'] !== '' ? $department = test_input($_POST['department'])  : 
 
 
 
-$_SESSION['first_name'] = $first_name;
-$_SESSION['last_name'] = $last_name;
-// $_SESSION['email'] = $email;
-$_SESSION['password'] = $password;
-$_SESSION['gender'] = $gender;
-$_SESSION['department'] = $department;
-$_SESSION['designation'] = $designation;
+
 
 
 
@@ -62,7 +59,13 @@ if (strlen($email) < 5) {
     header("location:adminDashboard.php#form");
     die();
 } else {
-
+    $_SESSION['first_name'] = $first_name;
+    $_SESSION['last_name'] = $last_name;
+    // $_SESSION['email'] = $email;
+    $_SESSION['password'] = $password;
+    $_SESSION['gender'] = $gender;
+    $_SESSION['department'] = $department;
+    $_SESSION['designation'] = $designation;
 
     date_default_timezone_set("Africa/Lagos");
     $dateData = date('d M Y h:i:sa');

@@ -3,7 +3,9 @@
 
 include_once('./libs/header.php');
 require_once('./functions/alert.php');
-if (isset($_SESSION['LoggedIn']) && !empty($_SESSION['LoggedIn'])) {
+require_once('./functions/checkers.php');
+
+if (is_user_loggedIn()) {
     if ($_SESSION['role'] == "Medical Team(MT)") {
         header("location: dashboard.php");
     }
