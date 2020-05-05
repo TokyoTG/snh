@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('./functions/alert.php');
 if (isset($_SESSION['transaction_successful'])) {
     $subject = "Bill Payment Succesful";
     $email = $_SESSION['email'];

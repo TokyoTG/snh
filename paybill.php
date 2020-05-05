@@ -1,10 +1,8 @@
 <?php
 include_once('./libs/header.php');
 require_once('./functions/alert.php');
-if (!isset($_SESSION['LoggedIn'])) {
-    set_message('error', "You are not authorized to be here");
-    header("location:login.php");
-}
+require_once('./functions/checkers.php');
+is_patient();
 
 $userData = json_decode($_SESSION['userObject']);
 

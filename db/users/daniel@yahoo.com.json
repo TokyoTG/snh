@@ -1,11 +1,1 @@
-{
-  "id": 3,
-  "firstname": "Abdul",
-  "lastname": "Daniel",
-  "email": "daniel@yahoo.com",
-  "password": "$2y$10$WrVic1wWWkTpeneOVqepLOaFbYpfA5K9FJKuisrn38rNIy998uDIO",
-  "gender": "Female",
-  "department": "Laboratory",
-  "designation": "Medical Team(MT)",
-  "dateRegistered": "10:30pm April 15 2014"
-}
+{"id":3,"firstname":"Abdul","lastname":"Daniel","email":"daniel@yahoo.com","password":"$2y$10$8gFk6yxb8p2QxUizg7Z5pOvoMlpkep\/34qmm.rHktSB0LTMaLaYKK","gender":"Female","department":"Laboratory","designation":"Medical Team(MT)","dateRegistered":"10:30pm April 15 2014"}

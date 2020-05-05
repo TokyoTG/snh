@@ -2,10 +2,10 @@
 // session_start();
 include_once('./libs/header.php');
 require_once('./functions/alert.php');
-if (!isset($_SESSION['LoggedIn']) || $_SESSION['role'] !== "Super Admin") {
-    set_message('error', "You have not login");
-    header("location:login.php");
-}
+require_once('./functions/getter.php');
+require_once('./functions/checkers.php');
+
+is_admin();
 
 $userData = json_decode($_SESSION['userObject']);
 $lastLogIn = fetchDate($_SESSION['email']);
@@ -26,6 +26,7 @@ $userData->dateLog = $lastLogIn;
 
             <li><a href="adminTable.php?table=staff">View Staffs</a></li>
             <li><a href="adminTable.php?table=patient">View Patients</a></li>
+            <li><a href="allpayments.php">View Payments</a></li>
             <li><a href="#form">Create User</a></li>
         </ul>
     </div>

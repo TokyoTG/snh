@@ -3,11 +3,8 @@
 include_once('./libs/header.php');
 require_once('./functions/alert.php');
 require_once('./functions/getter.php');
-if (!isset($_SESSION['LoggedIn']) || $_SESSION['role'] !== "Medical Team(MT)") {
-    set_message('error', "You have not login");
-    header("location:login.php");
-}
-
+require_once('./functions/checkers.php');
+is_medicalTeam();
 $userData = json_decode($_SESSION['userObject']);
 $lastLogIn = fetchDate($_SESSION['email']);
 ?>

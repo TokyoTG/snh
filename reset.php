@@ -1,7 +1,8 @@
 <?php
 include_once('./libs/header.php');
 require_once('./functions/alert.php');
-if (!isset($_GET['token']) && !isset($_SESSION['token']) && !isset($_SESSION['LoggedIn'])) {
+require_once('./functions/checkers.php');
+if (!is_user_loggedIn() && !is_token_set()) {
     set_message('error', "You are not authorized to be here");
     header("location:login.php");
 }
@@ -22,12 +23,12 @@ if (!isset($_GET['token']) && !isset($_SESSION['token']) && !isset($_SESSION['Lo
     ?>
 
     <form action="processreset.php" method="POST">
-        <?php if (!isset($_SESSION['LoggedIn'])) { ?>
+        <?php if (!is_user_loggedIn()) { ?>
             <input type="hidden" name="token" value="<?php
-                                                        if (isset($_GET['token'])) {
+                                                        if (is_token_set_in_get()) {
                                                             echo ($_GET['token']);
                                                         } else {
-                                                            if (isset($_SESSION['token'])) {
+                                                            if (is_token_set_in_session()) {
                                                                 echo ($_SESSION['token']);
                                                             }
                                                         }

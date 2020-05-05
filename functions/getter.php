@@ -24,6 +24,7 @@ function getAppointments($dept)
     for ($i = 2; $i < $num; $i++) {
         $appointment = json_decode(file_get_contents('db/appointments/' . $allAppointments[$i]));
         if ($appointment->department == $dept) {
+            $rowNum++;
             if (in_array($appointment->patient_email, $paymentsEmails)) {
                 $rows .= "
              <tr>
@@ -51,7 +52,6 @@ function getAppointments($dept)
             </tr>
             ";
             }
-            $rowNum++;
         }
     }
     if ($rows == '') {
@@ -79,7 +79,8 @@ function getAllusers()
              <tr>
                 <th scope='row'>$staffRowNum</th>
                 <td>$user->firstname $user->lastname</td>
-                 <td>$user->gender</td>
+                <td>$user->email</td>
+                <td>$user->gender</td>
                 <td>$user->designation</td>
                 <td>$user->department</td>
                 <td>$user->dateRegistered</td>
@@ -91,7 +92,8 @@ function getAllusers()
              <tr>
                 <th scope='row'>$numofPatientRows</th>
                 <td>$user->firstname $user->lastname</td>
-                  <td>$user->gender</td>
+                <td>$user->email</td>  
+                <td>$user->gender</td>
                 <td>$user->designation</td>
                 <td>$user->department</td>
                 <td>$user->dateRegistered</td>
@@ -137,6 +139,33 @@ function getTransactionsHistory($email)
             </tr>
             ";
         }
+    }
+
+    return $rows;
+}
+
+function getAllTransactions()
+{
+    $rows = '';
+    $rowNum = 0;
+    $payments = scandir('db/payments/');
+    $num = count($payments);
+    for ($i = 2; $i < $num; $i++) {
+        $currentPayment = json_decode(file_get_contents('db/payments/' . $payments[$i]));
+        // print_r($user);
+        $rowNum++;
+        $rows .= "
+             <tr>
+                <th scope='row'>$rowNum</th>
+                <td>$currentPayment->email</td>
+                 <td>$currentPayment->amount</td>
+                   <td>$currentPayment->type</td>
+                <td>$currentPayment->date</td>
+                <td>$currentPayment->time</td>
+                 <td>$currentPayment->department</td>
+                <td>$currentPayment->txRef</td>
+            </tr>
+            ";
     }
 
     return $rows;

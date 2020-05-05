@@ -1,5 +1,6 @@
 <?php
 require_once('./functions/alert.php');
+require_once('./functions/checkers.php');
 session_start();
 $first_name = $last_name = $email = $password = $gender = $department = $designation = '';
 $errorCount = 0;
@@ -64,7 +65,12 @@ if (strlen($email) < 5) {
     $allusers = scandir('db/users/');
     $numOfUsers = count($allusers);
     $userId = ($numOfUsers - 1);
-
+    $user_exists = find_user($email);
+    if ($user_exists) {
+        set_message("error", 'Registration failed, user already exists');
+        header("location:register.php");
+        die();
+    }
     $userObject = [
         'id' => $userId,
         'firstname' => $first_name,
@@ -78,19 +84,7 @@ if (strlen($email) < 5) {
     ];
 
 
-    for ($counter = 0; $counter < $numOfUsers; $counter++) {
-        $currentUser = $allusers[$counter];
-        if ($currentUser == $email . ".json") {
-
-            // $_SESSION['error'] ='Registration failed, user already exists' ;
-
-            set_message("error", 'Registration failed, user already exists');
-            header("location:register.php");
-            die();
-        }
-    }
-
-    file_put_contents("db/users/" . $email . ".json", json_encode($userObject));
+    save_userObject($userObject, $email);
     // $_SESSION['message'] = "You have successfully registered you can now login ".$first_name;
     set_message('message', "You have successfully registered you can now login " . $first_name);
 

@@ -3,14 +3,8 @@
 // session_start();
 include_once('./libs/header.php');
 require_once('./functions/alert.php');
-if (!isset($_SESSION['LoggedIn']) || $_SESSION['role'] !== "Patient") {
-    set_message('error', "You have not login");
-    header("location:login.php");
-}
-
-
-
-
+require_once('./functions/checkers.php');
+is_patient();
 
 ?>
 

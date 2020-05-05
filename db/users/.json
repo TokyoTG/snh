@@ -1,0 +1,11 @@
+{
+  "id": 14,
+  "firstname": "Muezz",
+  "lastname": "Baddo",
+  "email": "mueezz@gmail.com",
+  "password": "$2y$10$vwAz0e8xMt5fCGQ/VaNloelHG9iJvhdtiMZq5OPnMDegr4mjAeV1K",
+  "gender": "Male",
+  "department": "X-ray",
+  "designation": "Patient",
+  "dateRegistered": "05 May 2020 03:52:11am"
+}
