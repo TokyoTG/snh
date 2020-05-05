@@ -12,18 +12,6 @@ $_POST['complaint'] !== '' ? $complaint = test_input($_POST['complaint'])  : $er
 $_POST['department'] !== '' ? $department = test_input($_POST['department'])  : $errorCount++;
 
 
-
-$_SESSION['nature'] = $nature;
-$_SESSION['time'] = $time;
-$_SESSION['date'] = $date;
-$_SESSION['department'] = $department;
-$_SESSION['complaint'] = $complaint;
-
-
-
-
-
-
 if ($errorCount > 0) {
     $session_message = 'Submission failed, you have ' . $errorCount . ' blank field';
     if ($errorCount > 1) {
@@ -39,12 +27,15 @@ if ($errorCount > 0) {
 }
 
 if (strlen($complaint) < 5) {
-
     set_message('error', "Complaint cannot not be less than 5");
     header("location:bookappointment.php");
     die();
 } else {
-
+    $_SESSION['nature'] = $nature;
+    $_SESSION['time'] = $time;
+    $_SESSION['date'] = $date;
+    $_SESSION['department'] = $department;
+    $_SESSION['complaint'] = $complaint;
 
 
     $timeToString = strtotime($time);
@@ -60,6 +51,7 @@ if (strlen($complaint) < 5) {
         'date' => $date,
         'department' => $department,
         'complaint' => $complaint,
+        'patient_email' => $_SESSION['email'],
         "patientName" => $userData->firstname . " " . $userData->lastname
     ];
     // print_r($apointObject);

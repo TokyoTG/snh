@@ -8,6 +8,7 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['role'] !== "Patient") {
     header("location:login.php");
 }
 
+
 $userData = json_decode($_SESSION['userObject']);
 $lastLogIn = fetchDate($_SESSION['email']);
 ?>
@@ -40,6 +41,7 @@ $lastLogIn = fetchDate($_SESSION['email']);
         ?></p>
     <a class="btn btn-outline-success" href="paybill.php">Pay Bill</a>
     <a class="btn btn-outline-primary" href="bookappointment.php">Book Appointment</a>
+    <a class="btn btn-outline-primary" href="patientTransactions.php">Transaction History</a>
 </div>
 
 <div class="time">

@@ -13,8 +13,6 @@ $_POST['password'] !== '' ? $password = $_POST['password'] : $errorCount++;
 
 
 
-$_SESSION['email'] = $email;
-
 if ($errorCount > 0) {
     $session_message = 'Reset failed, you have ' . $errorCount . ' error';
     if ($errorCount > 1) {
@@ -25,6 +23,7 @@ if ($errorCount > 0) {
     set_message('error', $session_message);
     header("location:reset.php");
 } else {
+    $_SESSION['email'] = $email;
     $alltokens = scandir('db/tokens/');
     $numOfTokens = count($alltokens) - 1;
 

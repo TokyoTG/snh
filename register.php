@@ -51,7 +51,7 @@ if (isset($_SESSION['LoggedIn']) && !empty($_SESSION['LoggedIn'])) {
                                     //  $_SESSION['first_name'] = '';      
                                 }
 
-                                ?>" type="text" name="first_name" placeholder="Please enter first name" value="<?php echo $first_name ?>">
+                                ?>" type="text" name="first_name" placeholder="Please enter first name">
             </p>
 
 

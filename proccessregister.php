@@ -14,19 +14,6 @@ $_POST['department'] !== '' ? $department = test_input($_POST['department'])  : 
 
 
 
-$_SESSION['first_name'] = $first_name;
-$_SESSION['last_name'] = $last_name;
-$_SESSION['email'] = $email;
-$_SESSION['password'] = $password;
-$_SESSION['gender'] = $gender;
-$_SESSION['department'] = $department;
-$_SESSION['designation'] = $designation;
-
-
-
-
-
-
 if ($errorCount > 0) {
     $session_message = 'Submission failed, you have ' . $errorCount . ' blank field';
     if ($errorCount > 1) {
@@ -50,6 +37,9 @@ if (strlen($first_name) < 2 || strlen($last_name) < 2) {
     set_message('error', "First and last name cannot not be less than 2");
     header("location:register.php");
     die();
+} else {
+    $_SESSION['first_name'] = $first_name;
+    $_SESSION['last_name'] = $last_name;
 }
 
 
@@ -63,7 +53,11 @@ if (strlen($email) < 5) {
     header("location:register.php");
     die();
 } else {
-
+    $_SESSION['email'] = $email;
+    $_SESSION['password'] = $password;
+    $_SESSION['gender'] = $gender;
+    $_SESSION['department'] = $department;
+    $_SESSION['designation'] = $designation;
 
     date_default_timezone_set("Africa/Lagos");
     $dateData = date('d M Y h:i:sa');

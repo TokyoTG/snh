@@ -1,1 +1,11 @@
-{"status":"success","message":"Tx Fetched","data":{"txid":1258673,"txref":"rave-2993331","flwref":"FLW-MOCK-a0869b3a9b45cdc83532706b18693033","devicefingerprint":"cc1125147eb55fe5bbd2cd41a25aee2e","cycle":"one-time","amount":3000,"currency":"NGN","chargedamount":3000,"appfee":2042,"merchantfee":0,"merchantbearsfee":1,"chargecode":"00","chargemessage":"Please enter the OTP sent to your mobile number 080****** and email te**@rave**.com","authmodel":"VBVSECURECODE","ip":"197.210.52.215","narration":"CARD Transaction ","status":"successful","vbvcode":"00","vbvmessage":"Approved. Successful","authurl":"https://ravesandboxapi.flutterwave.com/mockvbvpage?ref=FLW-MOCK-a0869b3a9b45cdc83532706b18693033&code=00&message=Approved. Successful&receiptno=RN1588465343578","acctcode":"RN1588465343578","acctmessage":null,"paymenttype":"card","paymentid":"6488","fraudstatus":"ok","chargetype":"normal","createdday":0,"createddayname":"SUNDAY","createdweek":18,"createdmonth":4,"createdmonthname":"MAY","createdquarter":2,"createdyear":2020,"createdyearisleap":true,"createddayispublicholiday":0,"createdhour":0,"createdminute":22,"createdpmam":"am","created":"2020-05-03T00:22:23.000Z","customerid":372172,"custphone":null,"custnetworkprovider":"N/A","custname":"Anonymous customer","custemail":"ahmed@yahoo.come","custemailprovider":"COMPANY EMAIL","custcreated":"2020-05-03T00:22:22.000Z","accountid":111877,"acctbusinessname":"Tokyo","acctcontactperson":"Toyeeb Ganiu","acctcountry":"NG","acctbearsfeeattransactiontime":1,"acctparent":2410,"acctvpcmerchant":"N/A","acctalias":null,"acctisliveapproved":0,"orderref":"URF_1588465343503_8308935","paymentplan":null,"paymentpage":null,"raveref":"RV315884653424001639678D7D","amountsettledforthistransaction":958,"card":{"expirymonth":"09","expiryyear":"21","cardBIN":"553188","last4digits":"2950","brand":" CREDIT","issuing_country":"NIGERIA NG","card_tokens":[{"embedtoken":"flw-t1nf-25cd1ba08b89e09b5e2e4c0f4bd2b834-m03k","shortcode":"98f66","expiry":"9999999999999"}],"type":"MASTERCARD","life_time_token":"flw-t1nf-25cd1ba08b89e09b5e2e4c0f4bd2b834-m03k"},"meta":[]}}
+{
+  "id": 2,
+  "department": "Laboratory",
+  "amount": 3000,
+  "type": "card",
+  "date": "03 May 2020",
+  "time": "11:31:22 PM",
+  "patient_name": "Fatai Ahmed",
+  "email": "ahmed@yahoo.come",
+  "txRef": "56cy50fzjc07by2e0i3f"
+}

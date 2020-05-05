@@ -7,7 +7,6 @@ if (isset($_GET['txref'])) {
     $ref = $_GET['txref'];
     $amount = "3000"; //Correct Amount from Server
     $currency = "NGN"; //Correct Currency from Server
-
     $query = array(
         "SECKEY" => "FLWSECK_TEST-b0f0a1ea74bc0e2e223feea7d5f71daa-X",
         "txref" => $ref
@@ -32,16 +31,38 @@ if (isset($_GET['txref'])) {
     curl_close($ch);
 
     $resp = json_decode($response, true);
-
+    date_default_timezone_set("Africa/Lagos");
+    $date = date('d M Y');
+    $time = date('h:i:s A');
     $paymentStatus = $resp['data']['status'];
     $chargeResponsecode = $resp['data']['chargecode'];
     $chargeAmount = $resp['data']['amount'];
+    $cust_email = $resp['data']['custemail'];
+    $cust_name = $resp['data']['custname'];
+    $txRef = $resp['data']['txref'];
     $chargeCurrency = $resp['data']['currency'];
+    $paymentType = $resp['data']['paymenttype'];
     if (($chargeResponsecode == "00" || $chargeResponsecode == "0") && ($chargeAmount == $amount)  && ($chargeCurrency == $currency)) {
         // transaction was successful...
-        file_put_contents("db/payments/" . $id . ".json", $response);
+        $transObject = [
+            'id' => $id,
+            'department' => $_SESSION['payment_department'],
+            'amount' => $chargeAmount,
+            'type' => $paymentType,
+            'date' => $date,
+            'time' => $time,
+            'patient_name' => $cust_name,
+            'email' => $cust_email,
+            'txRef' => $txRef
+        ];
+
+
+        $_SESSION['transaction_successful'] = true;
+        file_put_contents("db/payments/" . $id . ".json", json_encode($transObject));
         set_message('message', "payment successful");
-        header("location:patientDashboard.php");
+        //to sendmail page
+        header("location:mailer.php");
+        die();
         // please check other things like whether you already gave value for this ref
         // if the email matches the customer who owns the product etc
         //Give Value and return to Success page
@@ -50,5 +71,6 @@ if (isset($_GET['txref'])) {
 
     }
 } else {
-    die('No reference supplied');
+    header("location:patientDashboard.php");
+    die();
 }
